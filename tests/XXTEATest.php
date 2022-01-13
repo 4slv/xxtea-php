@@ -1,16 +1,21 @@
 <?php
+
+namespase xtea/tests;
+
+use xtea/Xxtea;
+
 class XXTEATest extends PHPUnit_Framework_TestCase {
     public function testEncrypt() {
-        $str = "Hello World! 你好，中国🇨🇳！";
+        $str = "Hello World!";
     	$key = "1234567890";
-    	$encrypt_data = xxtea_encrypt($str, $key);
-        $this->assertEquals(base64_encode($encrypt_data), "D4t0rVXUDl3bnWdERhqJmFIanfn/6zAxAY9jD6n9MSMQNoD8TOS4rHHcGuE=");
+    	$encrypt_data = Xxtea::encrypt($str, $key);
+        $this->assertEquals(base64_encode($encrypt_data), "AkwSi8IEfZxDejCdKQBLWL7w1zGktADVekoAXQ==");
     }
     public function testDecrypt() {
-        $str = "Hello World! 你好，中国🇨🇳！";
+        $str = "Hello World!";
     	$key = "1234567890";
-    	$encrypt_data = xxtea_encrypt($str, $key);
-    	$decrypt_data = xxtea_decrypt($encrypt_data, $key);
+    	$encrypt_data = Xxtea::encrypt($str, $key);
+    	$decrypt_data = Xxtea::decrypt($encrypt_data, $key);
         $this->assertEquals($decrypt_data, $str);
     }
 }
