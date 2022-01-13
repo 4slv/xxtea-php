@@ -8,13 +8,13 @@ namespace xxtea;
 class Xxtea {
 
     /**
-           * Encryption string
-           * @Param String $ string
-           * @Param String $ key encryption key
-           * @Param Integer $ EXPIRE Validity Period (Second)     
+     * Encryption string
+     * @Param String $string
+     * @Param String $key encryption key
+     * @Param Integer $expire Validity Period (Second)
      * @return string
      */
-    public static function encrypt($str, $key,$expire=0) {
+    public static function encrypt($str, $key, $expire=0) {
         $expire = sprintf('%010d', $expire ? $expire + time():0);
         $str    =   $expire.$str;
         $v = self::str2long($str, true);
@@ -44,9 +44,21 @@ class Xxtea {
     }
 
     /**
-           * Decrypt string
-           * @Param String $ string
-           * @Param String $ key encryption key
+     * Encryption string to base64
+     * @Param String $string
+     * @Param String $key encryption key
+     * @Param Integer $expire Validity Period (Second)
+     * @return string
+     */
+    public static function encrypt_base64($str, $key, $expire=0)
+    {
+        return base64_encode(self::encrypt($str, $key, $expire));
+    }
+
+    /**
+     * Decrypt string
+     * @Param String $string
+     * @Param String $key encryption key
      * @return string
      */
     public static function decrypt($str, $key) {
@@ -80,6 +92,17 @@ class Xxtea {
         }
         $data   = substr($data,10);
         return $data;
+    }
+
+    /**
+     * Decrypt base64 string
+     * @Param String $string base64 string
+     * @Param String $key encryption key
+     * @return string
+     */
+    public static function decrypt_base64($str, $key)
+    {
+        return self::decrypt(base64_decode($str), $key, $expire);
     }
 
     private static function long2str($v, $w) {
