@@ -23,11 +23,10 @@ Download the xxtea.php, and put it in your develepment directory.
 
 ```php
 <?php
-    require_once("xxtea.php");
-    $str = "Hello World! 你好，中国！";
+    $str = "Hello World!";
     $key = "1234567890";
-    $encrypt_data = xxtea_encrypt($str, $key);
-    $decrypt_data = xxtea_decrypt($encrypt_data, $key);
+    $encrypt_data = Xxtea::encrypt($str, $key);
+    $decrypt_data = Xxtea::decrypt($encrypt_data, $key);
     if ($str == $decrypt_data) {
         echo "success!";
     } else {
