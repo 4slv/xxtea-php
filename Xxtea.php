@@ -56,6 +56,18 @@ class Xxtea {
     }
 
     /**
+     * Encryption data => base64
+     * @Param mixed $data
+     * @Param String $key encryption key
+     * @Param Integer $expire Validity Period (Second)
+     * @return string
+     */
+    public static function encrypt_data_to_base64($data, $key, $expire=0)
+    {
+        return self::encrypt_base64(serialize($data), $key, $expire);
+    }
+
+    /**
      * Decrypt string
      * @Param String $string
      * @Param String $key encryption key
@@ -102,7 +114,18 @@ class Xxtea {
      */
     public static function decrypt_base64($str, $key)
     {
-        return self::decrypt(base64_decode($str), $key, $expire);
+        return self::decrypt(base64_decode($str), $key);
+    }
+
+    /**
+     * Decrypt base64 => data
+     * @Param String $string base64 string
+     * @Param String $key encryption key
+     * @return mixed
+     */
+    public static function decrypt_data_from_base64($str, $key)
+    {
+        return unserialize(self::decrypt_base64($str, $key));
     }
 
     private static function long2str($v, $w) {
