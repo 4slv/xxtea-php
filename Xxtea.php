@@ -1,6 +1,6 @@
 <?php
 
-namespase xxtea;
+namespace xxtea;
 
 /**
  * XXTEA encryption implementation class
