@@ -1,8 +1,9 @@
 <?php
 
-namespase xtea/tests;
+namespace xxtea\tests;
 
-use xtea/Xxtea;
+use xxtea\Xxtea;
+use PHPUnit_Framework_TestCase;
 
 class XXTEATest extends PHPUnit_Framework_TestCase {
     public function testEncrypt() {
