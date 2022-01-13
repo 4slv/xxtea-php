@@ -1,5 +1,5 @@
 {
-    "name": "xxtea/xxtea",
+    "name": "x5hell/xxtea",
     "type": "library",
     "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",
     "keywords": [
@@ -11,13 +11,13 @@
         "cryptography",
         "library"
     ],
-    "homepage": "https://github.com/xxtea/xxtea-php",
+    "homepage": "https://github.com/x5hell/xxtea-php",
     "license": "MIT",
     "authors": [
         {
             "name": "Ma Bingyao",
-            "email": "mabingyao@gmail.com",
-            "homepage": "https://github.com/xxtea/xxtea-php",
+            "email": "adobrynin.4slovo@gmail.com",
+            "homepage": "https://github.com/x5hell/xxtea-php",
             "role": "Developer"
         }
     ],
@@ -28,6 +28,8 @@
         "phpunit/phpunit": ">=4.0.0"
     },
     "autoload": {
-        "files": ["xxtea.php"]
+    "psr-4": {
+      "xxtea\\": ""
     }
+  }
 }
